@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, use } from 'react';
 import { collection, query, where, getDocs, updateDoc, doc, increment } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { BlogPost } from '@/types/blog';
@@ -9,25 +9,26 @@ import { notFound } from 'next/navigation';
 import { marked } from 'marked';
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = use(params);
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [htmlContent, setHtmlContent] = useState('');
 
   useEffect(() => {
     fetchPost();
-  }, [params.slug]);
+  }, [slug]);
 
   const fetchPost = async () => {
     try {
       const q = query(
         collection(db, 'blogPosts'),
-        where('slug', '==', params.slug),
+        where('slug', '==', slug),
         where('status', '==', 'published')
       );
       
