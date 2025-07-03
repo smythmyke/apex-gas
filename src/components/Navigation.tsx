@@ -3,50 +3,52 @@ import Image from 'next/image';
 
 export default function Navigation() {
   return (
-    <header className="bg-white shadow-md">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-blue-600">Apex Gas Blog</span>
-            </Link>
-          </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <a
-                href="https://apeximagegas.net"
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Main Site
-              </a>
-              <a
-                href="https://apeximagegas.net/#about"
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-              >
+    <header className="bg-blue-600 text-white py-4">
+      <div className="container mx-auto px-4 flex justify-between items-center">
+        <div className="flex items-center space-x-4">
+          <Link href="/" className="flex items-center space-x-4">
+            <Image 
+              src="/apex_logo.png" 
+              alt="Apex Image Gas Logo" 
+              width={40} 
+              height={40}
+              className="logo-shine"
+            />
+            <h1 className="text-2xl font-bold">
+              <span style={{ fontFamily: 'Orbitron, sans-serif' }}>APEX</span> Image Gas Blog
+            </h1>
+          </Link>
+        </div>
+        <nav>
+          <ul className="flex space-x-4">
+            <li>
+              <a href="https://apeximagegas.net/#about" className="hover:text-blue-200">
                 About
               </a>
-              <a
-                href="https://apeximagegas.net/#product"
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-              >
+            </li>
+            <li>
+              <a href="https://apeximagegas.net/#product" className="hover:text-blue-200">
                 Product
               </a>
-              <a
-                href="https://apeximagegas.net/#pricing"
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-              >
+            </li>
+            <li>
+              <a href="https://apeximagegas.net/#pricing" className="hover:text-blue-200">
                 Pricing
               </a>
-              <a
-                href="https://apeximagegas.net/#contact"
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-              >
+            </li>
+            <li>
+              <Link href="/" className="hover:text-blue-200">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <a href="https://apeximagegas.net/#contact" className="hover:text-blue-200">
                 Contact
               </a>
-            </div>
-          </div>
-        </div>
-      </nav>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 }
