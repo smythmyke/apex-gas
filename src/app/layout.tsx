@@ -36,7 +36,8 @@ export default function RootLayout({
         <link rel="icon" type="image/x-icon" href="/apex_logo.png" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
+        style={{ backgroundColor: '#ffffff', color: '#111827' }}
         suppressHydrationWarning
       >
         <Navigation />

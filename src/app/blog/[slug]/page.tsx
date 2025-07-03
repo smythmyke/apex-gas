@@ -99,7 +99,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <article className="min-h-screen bg-white">
+    <article className="min-h-screen bg-white" style={{ backgroundColor: '#ffffff' }}>
       {/* Hero Section */}
       <div className="relative h-96 w-full">
         <Image
@@ -130,7 +130,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       </div>
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto px-4 py-12">
+      <div className="max-w-4xl mx-auto px-4 py-12 bg-white" style={{ backgroundColor: '#ffffff' }}>
         {/* Meta Info */}
         <div className="mb-8 pb-8 border-b border-gray-200">
           <p className="text-xl text-gray-600 leading-relaxed">
