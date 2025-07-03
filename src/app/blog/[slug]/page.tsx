@@ -44,7 +44,17 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       setPost(postData);
       
       // Convert markdown to HTML
-      const html = await marked(postData.markdownContent || postData.content);
+      const markdownContent = postData.markdownContent || postData.content;
+      
+      // Configure marked for better rendering
+      marked.setOptions({
+        gfm: true,
+        breaks: true,
+        headerIds: false,
+        mangle: false
+      });
+      
+      const html = await marked.parse(markdownContent);
       setHtmlContent(html);
       
       // Increment view count
@@ -142,7 +152,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Blog Content */}
         <div 
-          className="prose prose-lg max-w-none"
+          className="prose prose-lg max-w-none prose-gray"
+          style={{ color: '#1f2937' }}
           dangerouslySetInnerHTML={{ __html: htmlContent }}
         />
 
@@ -161,7 +172,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             Contact Apex Gas for comprehensive medical gas systems, X-ray equipment, and professional services.
           </p>
           <a
-            href="/contact"
+            href="https://apeximagegas.net/#contact"
             className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
           >
             Get a Free Consultation

@@ -6,7 +6,7 @@ export default function Navigation() {
     <header className="bg-blue-600 text-white py-4">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center space-x-4">
-          <Link href="/" className="flex items-center space-x-4">
+          <a href="https://apeximagegas.net" className="flex items-center space-x-4">
             <Image 
               src="/apex_logo.png" 
               alt="Apex Image Gas Logo" 
@@ -15,9 +15,9 @@ export default function Navigation() {
               className="logo-shine"
             />
             <h1 className="text-2xl font-bold">
-              <span style={{ fontFamily: 'Orbitron, sans-serif' }}>APEX</span> Image Gas Blog
+              <span style={{ fontFamily: 'Orbitron, sans-serif' }}>APEX</span> Image Gas
             </h1>
-          </Link>
+          </a>
         </div>
         <nav>
           <ul className="flex space-x-4">
