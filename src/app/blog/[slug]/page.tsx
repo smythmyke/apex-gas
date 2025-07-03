@@ -6,7 +6,6 @@ import { db } from '@/lib/firebase';
 import { BlogPost } from '@/types/blog';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { marked } from 'marked';
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -43,19 +42,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       const postData = { id: docData.id, ...docData.data() } as BlogPost;
       setPost(postData);
       
-      // Convert markdown to HTML
-      const markdownContent = postData.markdownContent || postData.content;
-      
-      // Configure marked for better rendering
-      marked.setOptions({
-        gfm: true,
-        breaks: true,
-        headerIds: false,
-        mangle: false
-      });
-      
-      const html = await marked.parse(markdownContent);
-      setHtmlContent(html);
+      // Use HTML content directly (already converted by publisher)
+      setHtmlContent(postData.content);
       
       // Increment view count
       await updateDoc(doc(db, 'blogPosts', docData.id), {
@@ -152,8 +140,12 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Blog Content */}
         <div 
-          className="prose prose-lg max-w-none prose-gray"
-          style={{ color: '#1f2937' }}
+          className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-900 prose-li:text-gray-900 prose-strong:text-gray-900 prose-a:text-blue-600"
+          style={{ 
+            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+            color: '#111827',
+            lineHeight: '1.75'
+          }}
           dangerouslySetInnerHTML={{ __html: htmlContent }}
         />
 
