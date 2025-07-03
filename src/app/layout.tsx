@@ -21,7 +21,7 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  title: "Apex Gas Blog - Medical Gas & X-Ray Equipment Insights",
+  title: "Apex Image Gas - Medical Equipment Blog",
   description: "Expert insights on medical gas systems, X-ray equipment, and healthcare facility services",
 };
 

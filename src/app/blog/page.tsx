@@ -78,7 +78,7 @@ export default function BlogPage() {
       {/* Header */}
       <div className="bg-blue-50 py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4 text-gray-900">Apex Gas Blog</h1>
+          <h1 className="text-4xl font-bold mb-4 text-gray-900">Medical Equipment Insights</h1>
           <p className="text-xl text-gray-700 font-medium">
             Expert insights on medical imaging, X-ray technology, and healthcare equipment
           </p>
